@@ -1,0 +1,34 @@
+.game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__line {
+        width: 1200px;
+        height: 70px;
+        background: #EFEFEF99;
+        border-radius: 50px;
+        display: flex;
+
+        &__box {
+            width: 100%;
+            display: flex;
+
+            &__line {
+                height: 100%;
+                width: 1px;
+                background: #ffbc03;
+            }
+
+            &__process {
+                height: 70px;
+                background: #3300FF;
+                border-top-left-radius: 50px;
+                border-bottom-left-radius: 50px;
+                text-align: center;
+                color: rgb(9, 255, 0);
+            }
+
+        }
+    }
+}
