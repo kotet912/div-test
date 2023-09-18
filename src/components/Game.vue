@@ -1,9 +1,16 @@
 <template>
     <div class="game">
         <div class="game__line">
-            <div class="game__line__box">
-                <div class="game__line__box__process" :style="{ width: gameProgress + '%' }">
-                </div>
+            <div class="game__line__process" :style="{ width: gameProgress + '%' }">
+            </div>
+        </div>
+
+        <div class="game__box">
+            <span>0</span>
+            <div class="game__box__threshold-points" v-for="stage in stages" :key="stage.id">
+                <span v-for="game in stage.games" :key="game.name">
+                    {{ game.bestResult }} / {{ stage.thresholdPoints }}
+                </span>
             </div>
         </div>
     </div>
@@ -25,6 +32,9 @@ export default {
             const progress = (totalPoints / totalThresholdPoints) * 100;
 
             return Math.min(progress, 100);
+        },
+        stages () {
+            return this.$store.state.stages;
         },
     },
 };
