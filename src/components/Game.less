@@ -9,28 +9,30 @@
         height: 70px;
         background: #EFEFEF99;
         border-radius: 50px;
-
-        &__line {
-            height: 100%;
-            width: 1px;
-            background: #ffbc03;
-        }
+        display: flex;
+        overflow: hidden;
 
         &__process {
-            height: 70px;
             background: #3300FF;
+            height: 100%;
             border-top-left-radius: 50px;
             border-bottom-left-radius: 50px;
-            text-align: center;
-            color: rgb(9, 255, 0);
         }
     }
 
     &__box {
         display: flex;
         flex-direction: row;
-        &__threshold-points{
+        width: 100%;
+        justify-content: space-between;
+
+        &__threshold-points {
             margin: 0 10px;
+            opacity: 50%;
+
+            img {
+                width: 20px;
+            }
         }
     }
 }
