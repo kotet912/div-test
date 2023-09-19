@@ -1,5 +1,18 @@
 <template>
     <div class="game">
+        <div class="game__box__stages">
+            <div />
+            <div class="game__box__stages__threshold" v-for="(stage, index) in stages" :key="stage.id">
+                <img :src="totalPoints >= stage.thresholdPoints ? require('@/assets/Star.svg') : require('@/assets/StarContr.svg')"
+                    :class="[
+                        totalPoints >= stage.thresholdPoints ? 'game__box__stages__threshold__star-image' : 'game__box__stages__threshold__star-contrast-image',
+                        index === stages.length - index ? 'game__box__stages__threshold__large-star' : ''
+                    ]" alt="" />
+            </div>
+
+
+            <img class="game__box__stages__threshold__cup" src="../assets/cup.svg" alt="">
+        </div>
         <div class="game__line">
             <div class="game__line__process" :style="{ width: gameProgress + '%' }"></div>
         </div>
@@ -7,8 +20,6 @@
         <div class="game__box">
             <span>0</span>
             <div class="game__box__threshold-points" v-for="stage in stages" :key="stage.id">
-                <img :src="totalPoints >= stage.thresholdPoints ? require('@/assets/Star.svg') : require('@/assets/StarContr.svg')"
-                    alt="">
                 <span v-if="totalPoints < stage.thresholdPoints">
                     {{ totalPoints }} / {{ stage.thresholdPoints }}
                 </span>

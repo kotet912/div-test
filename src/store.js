@@ -34,7 +34,7 @@ export default createStore({
                 "games": [
                     {
                         "name": "Игра 3.1",
-                        "bestResult": 100,
+                        "bestResult": 10,
                         "isPlayed": false
                     }
                 ]
