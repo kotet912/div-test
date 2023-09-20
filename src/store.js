@@ -10,7 +10,7 @@ export default createStore({
                 "games": [
                     {
                         "name": "Игра 1.1",
-                        "bestResult": 10,
+                        "bestResult": 25,
                         "isPlayed": false
                     }
                 ]
@@ -22,7 +22,7 @@ export default createStore({
                 "games": [
                     {
                         "name": "Игра 2.1",
-                        "bestResult": 44,
+                        "bestResult": 75,
                         "isPlayed": false
                     }
                 ]

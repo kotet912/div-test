@@ -1,7 +1,6 @@
 <template>
     <div class="game">
         <div class="game__box__stages">
-            <div />
             <div class="game__box__stages__threshold" v-for="(stage, index) in stages" :key="stage.id">
                 <img v-if="index < stages.length - 1"
                     :src="totalPoints >= stage.thresholdPoints ? require('@/assets/Star.svg') : require('@/assets/StarContr.svg')"
@@ -10,7 +9,7 @@
                         index + 1 === currentIndex + 1 ? 'game__box__stages__threshold__large-star' : ''
                     ]" :style="{
     left: (index * stageWidth) + '%',
-    marginLeft: index === 0 ? stageWidth + '%' : stageWidth + '%' // Расстояние между звездами
+    marginLeft: index === 0 ? stageWidth - (stageWidth / 30) + '%' : (index === stages.length - 1 ? stageWidth - (stageWidth / 3) + '%' : (index + 1 === currentIndex + 1 ) ? stageWidth - (stageWidth / 16) + '%' : stageWidth - (stageWidth / 24) + '%')
 }" alt="" />
             </div>
             <img class="game__box__stages__threshold__cup" src="../assets/cup.svg" alt="">
@@ -19,15 +18,18 @@
         <div class="game__line">
             <div class="game__line__process" :style="{ width: gameProgress + '%' }">
             </div>
-            <!-- <span class="game__line__process__vertical-line" v-for="(stage) in stages" :key="stage.id"></span> -->
+            <span class="game__line__process__vertical-line" v-for="(stage, index) in stages" :key="stage.id" :style="{
+                left: (index * stageWidth) + '%',
+                display: (index === 0 ? 'none' : '')
+            }"></span>
         </div>
 
         <div class="game__box">
             <span>0</span>
             <div class="game__box__threshold-points" v-for="(stage, index) in stages" :key="stage.id">
-                <span v-if="totalPoints < stage.thresholdPoints" :style="{
+                <span v-if="index + 1 === currentIndex + 1" :style="{
                     left: (index * stageWidth) + '%',
-                    marginLeft: index === 0 ? stageWidth - (stageWidth / 30) + '%' : (index === stages.length - 1 ? stageWidth - (stageWidth / 3) + '%' : stageWidth - (stageWidth / 15) + '%')
+                    marginLeft: index === 0 ? stageWidth + '%' : (index === stages.length - 1 ? stageWidth - (stageWidth / 3) + '%' : stageWidth - (stageWidth / 7) + '%')
                 }">
                     {{ totalPoints }} / {{ stage.thresholdPoints }}
                 </span>

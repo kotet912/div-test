@@ -46,7 +46,6 @@
         }
 
         &__threshold-points {
-            // margin: 0 10px;
             font-size: 14px;
             position: relative;
 
@@ -59,7 +58,7 @@
     }
 
     &__line {
-        width: 1200px;
+        width: 90vw;
         margin-bottom: 10px;
         height: 70px;
         background: #EFEFEF99;
@@ -67,6 +66,7 @@
         display: flex;
         overflow: hidden;
         justify-content: space-between;
+        position: relative;
 
         &__process {
             background: #3300FF;
@@ -79,17 +79,122 @@
             &__vertical-line {
                 height: 100%;
                 width: 1px;
-                background: rgba(0, 0, 0, 0.9);
+                background: rgba(0, 0, 0, 0.2);
                 z-index: 999;
-            }
-
-            &__vertical-line:last-child {
-                width: 0px;
+                position: absolute;
             }
         }
     }
 
     button {
         margin-top: 5%;
+    }
+}
+
+@media (max-width:1280px) {
+    .game {
+        span {
+            font-size: 14px;
+        }
+
+        &__box {
+
+            &__stages {
+
+                &__threshold {
+                    &__star-image {
+                        width: 16px;
+                    }
+
+                    &__star-contrast-image {
+                        width: 16px;
+                    }
+
+                    &__large-star {
+                        width: 24px;
+                    }
+
+                    &__cup {
+                        width: 45px;
+                    }
+                }
+            }
+        }
+
+        &__line {
+            height: 50px;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .game {
+        span {
+            font-size: 13px;
+        }
+
+        &__box {
+
+            &__stages {
+
+                &__threshold {
+                    &__star-image {
+                        width: 14px;
+                    }
+
+                    &__star-contrast-image {
+                        width: 14px;
+                    }
+
+                    &__large-star {
+                        width: 22px;
+                    }
+
+                    &__cup {
+                        width: 40px;
+                    }
+                }
+            }
+        }
+
+        &__line {
+            height: 45px;
+        }
+    }
+}
+
+@media (max-width:600px) {
+    .game {
+        span {
+            font-size: 12px;
+        }
+
+        &__box {
+
+            &__stages {
+
+                &__threshold {
+                    &__star-image {
+                        width: 14px;
+                    }
+
+                    &__star-contrast-image {
+                        width: 14px;
+                    }
+
+                    &__large-star {
+                        width: 22px;
+                    }
+
+                    &__cup {
+                        width: 40px;
+                    }
+                }
+            }
+        }
+
+        &__line {
+            height: 40px;
+        }
     }
 }
