@@ -16,7 +16,7 @@ export default {
         currentIndex: Number,
         totalPoints: Number,
         stage: Object,
-        thresholdPoints: Object,
+        thresholdPoints: Number,
         thresholdPointsStyle: Object,
     },
 
