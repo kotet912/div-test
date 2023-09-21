@@ -120,6 +120,7 @@ export default {
                 ...this.getCommonStyle(index),
                 marginLeft: index === 0 ? this.stageWidth + '%' : ''
             };
+
             // Проверяем, если этот этап текущий (совпадает с currentIndex)
             if (index + 1 === this.currentIndex + 1) {
                 commonStyle.marginLeft = this.stageWidth + '%'; // Устанавливаем отступ, если текущий этап
@@ -132,6 +133,7 @@ export default {
                 // Если этап не текущий, устанавливаем разные отступы в зависимости от индекса
                 commonStyle.marginLeft = index === 0 ? this.stageWidth - (this.stageWidth / 30) + '%' : (index === this.stages.length - 1 ? this.stageWidth - (this.stageWidth / 3) + '%' : this.stageWidth - (this.stageWidth / 15) + '%');
             }
+            return commonStyle;
         },
 
         // Проверяет, нужно ли показывать звезду
