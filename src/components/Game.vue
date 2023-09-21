@@ -2,38 +2,39 @@
     <div class="game">
         <div class="game__box">
             <div class="game__box__stages__threshold" v-for="(stage, index) in stages" :key="stage.id">
-                <img v-if="shouldShowStar(index)" :src="getStarImage(stage.thresholdPoints)" :class="getStarClasses(index)"
-                    :style="getStarStyle(index)" alt="" />
+                <Star v-if="shouldShowStar(index)" :starImage="getStarImage(stage.thresholdPoints)"
+                    :starClasses="getStarClasses(index)" :starStyle="getStarStyle(index)" />
             </div>
             <img class="game__box__stages__threshold__cup" src="../assets/cup.svg" alt="">
         </div>
 
         <div class="game__line">
             <div class="game__line__process" :style="{ width: gameProgress + '%' }"></div>
-            <span class="game__line__process__vertical-line" v-for="(stage, index) in stages" :key="stage.id"
-                :style="getVerticalLineStyle(index)"></span>
+            <VerticalLine class="game__line__process__vertical-line" v-for="(stage, index) in stages" :key="stage.id"
+                :verticalLineStyle="getVerticalLineStyle(index)" />
         </div>
 
         <div class="game__box">
             <span>0</span>
-            <div class="game__box__threshold-points" v-for="(stage, index) in stages" :key="stage.id">
-                <span v-if="index + 1 === currentIndex + 1" :style="getThresholdPointsStyle(index)">
-                    {{ totalPoints }} / {{ stage.thresholdPoints }}
-                </span>
-                <span v-else :style="getThresholdPointsStyle(index)">
-                    {{ stage.thresholdPoints }}
-                </span>
-            </div>
+            <ThresholdPoints v-for="(stage, index) in stages" :key="stage.id" :index="index" :currentIndex="currentIndex"
+                :thresholdPointsStyle="getThresholdPointsStyle(index)" :totalPoints="totalPoints"
+                :thresholdPoints="stage.thresholdPoints" :stage="stage" />
         </div>
         <button @click="updateBestResults">Данные</button>
     </div>
 </template>
 
 <script>
+import Star from './Star.vue';
+import VerticalLine from './VerticalLine.vue';
+import ThresholdPoints from './ThresholdPoints.vue';
 
 export default {
     name: 'DivTestGame',
     components: {
+        Star,
+        VerticalLine,
+        ThresholdPoints,
     },
     data () {
         return {
